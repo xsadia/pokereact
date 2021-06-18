@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useEffect, useState } from "react";
 import { useRouteMatch } from "react-router-dom";
 import { Sidebar } from "../../components/Sidebar";
@@ -51,11 +52,11 @@ export const PokeInfo = () => {
     const { params } = useRouteMatch<PokeParams>();
     const [pokemon, setPokemon] = useState<PokemonInfo>();
 
-    async function getPokeInfo() {
+    const getPokeInfo = useCallback(async () => {
         const response = await apiClient.get(`/pokemon/${params.id}`);
         setPokemon(response.data);
         console.log(response.data);
-    }
+    }, []);
 
     useEffect(() => {
         getPokeInfo();
