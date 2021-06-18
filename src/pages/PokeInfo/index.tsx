@@ -56,7 +56,7 @@ export const PokeInfo = () => {
         const response = await apiClient.get(`/pokemon/${params.id}`);
         setPokemon(response.data);
         console.log(response.data);
-    }, []);
+    }, [params.id]);
 
     useEffect(() => {
         getPokeInfo();
