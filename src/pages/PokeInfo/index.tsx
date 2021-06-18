@@ -59,7 +59,7 @@ export const PokeInfo = () => {
 
     useEffect(() => {
         getPokeInfo();
-    }, []);
+    }, [getPokeInfo]);
 
     return (
         <div style={{ display: 'flex' }}>
